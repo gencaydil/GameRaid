@@ -14,6 +14,11 @@ public class Playscreen implements Screen {
 
     private OrthographicCamera cam;
     private Spaceship spaceship = new Spaceship();
+    private Alien alienOne = new Alien(300,420,"alienimage.jpg");
+    private Alien alienTwo = new Alien(360,420,"alienimage.jpg");
+    private Alien alienThree = new Alien(420,420,"alienimage.jpg");
+    private Alien alienFour = new Alien(240,420,"alienimage.jpg");
+    private Alien alienFive = new Alien(180,420,"alienimage.jpg");
     private SpriteBatch spriteBatch;
     private Game game;
     private Vector3 touchPoint;
@@ -56,7 +61,13 @@ public class Playscreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.begin();
         spriteBatch.draw(spaceship.getTexture(),spaceship.getX(), spaceship.getY());
+        spriteBatch.draw(alienOne.getTexture(),alienOne.getX(), alienOne.getY());
+        spriteBatch.draw(alienTwo.getTexture(),alienTwo.getX(), alienTwo.getY());
+        spriteBatch.draw(alienThree.getTexture(),alienThree.getX(), alienThree.getY());
+        spriteBatch.draw(alienFour.getTexture(),alienFour.getX(), alienFour.getY());
+        spriteBatch.draw(alienFive.getTexture(),alienFive.getX(), alienFive.getY());
         spriteBatch.end();
+
 
     }
 
