@@ -49,7 +49,6 @@ public class Aboutscreen implements Screen {
     }
 
 
-
     @Override
     public void render(float delta) {
         handleInput();
@@ -91,5 +90,3 @@ public class Aboutscreen implements Screen {
 
     }
 }
-
-

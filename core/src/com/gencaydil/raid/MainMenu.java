@@ -3,7 +3,6 @@ package com.gencaydil.raid;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -43,7 +42,7 @@ public class MainMenu implements Screen {
         cam.unproject(touchPoint);
         if(Gdx.input.justTouched()){
             if (newgameButton.getCollision().contains(touchPoint.x, touchPoint.y)){
-                game.setScreen(new Playscreen());
+                game.setScreen(new Playscreen(spriteBatch, game));
             }
             else if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 System.out.println("I have touched the settings button!");
@@ -68,13 +67,13 @@ public class MainMenu implements Screen {
         spriteBatch.draw(exitButton.getTexture(),exitButton.getX(), exitButton.getY(), exitButton.getWidth(), exitButton.getHeight());
         spriteBatch.end();
 
-        sr.setProjectionMatrix(cam.combined);
-        sr.begin(ShapeRenderer.ShapeType.Line);
-        sr.setColor(Color.WHITE);
-        sr.rect(newgameButton.getCollision().x, newgameButton.getCollision().y, newgameButton.getCollision().width, newgameButton.getCollision().height);
-        sr.rect(settingsButton.getCollision().x, settingsButton.getCollision().y, settingsButton.getCollision().width, settingsButton.getCollision().height);
-        sr.rect(exitButton.getCollision().x, exitButton.getCollision().y, exitButton.getCollision().width, exitButton.getCollision().height);
-        sr.end();
+//        sr.setProjectionMatrix(cam.combined);
+//        sr.begin(ShapeRenderer.ShapeType.Line);
+//        sr.setColor(Color.WHITE);
+//        sr.rect(newgameButton.getCollision().x, newgameButton.getCollision().y, newgameButton.getCollision().width, newgameButton.getCollision().height);
+//        sr.rect(settingsButton.getCollision().x, settingsButton.getCollision().y, settingsButton.getCollision().width, settingsButton.getCollision().height);
+//        sr.rect(exitButton.getCollision().x, exitButton.getCollision().y, exitButton.getCollision().width, exitButton.getCollision().height);
+//        sr.end();
 
 
     }
