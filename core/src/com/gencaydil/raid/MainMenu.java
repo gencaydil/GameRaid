@@ -47,7 +47,7 @@ public class MainMenu implements Screen {
             }
             else if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 System.out.println("I have touched the settings button!");
-                game.setScreen(new Settingsscreen());
+                game.setScreen(new Settingsscreen(spriteBatch, game, this));
             }
             else if (exitButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 Gdx.app.exit();
@@ -101,6 +101,7 @@ public class MainMenu implements Screen {
 
     @Override
     public void dispose() {
+
 
     }
 }
