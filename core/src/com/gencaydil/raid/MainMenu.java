@@ -15,6 +15,8 @@ public class MainMenu implements Screen {
     private Button newgameButton = new Button (Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) + 100 , "newgamebutton.jpg");
     private Button settingsButton = new Button (Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2), "settingsbutton.jpg");
     private Button exitButton = new Button (Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) - 100, "exitgamebutton.jpg");
+    private Backgroundimages mainmenuImage = new Backgroundimages("backgroundmoon.jpeg");
+    private Backgroundimages gamelogoImage = new Backgroundimages("raidlogo.jpg");
     private SpriteBatch spriteBatch;
     private Vector3 touchPoint;
     private OrthographicCamera cam;
@@ -62,6 +64,8 @@ public class MainMenu implements Screen {
         handleInput();
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.begin();
+        spriteBatch.draw(mainmenuImage.getTexture(), 0,0);
+        spriteBatch.draw(gamelogoImage.getTexture(), -20,0);
         spriteBatch.draw(newgameButton.getTexture(),newgameButton.getX(), newgameButton.getY(), newgameButton.getWidth(), newgameButton.getHeight());
         spriteBatch.draw(settingsButton.getTexture(),settingsButton.getX(), settingsButton.getY(), settingsButton.getWidth(), settingsButton.getHeight());
         spriteBatch.draw(exitButton.getTexture(),exitButton.getX(), exitButton.getY(), exitButton.getWidth(), exitButton.getHeight());

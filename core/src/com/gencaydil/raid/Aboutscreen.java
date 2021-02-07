@@ -17,6 +17,7 @@ public class Aboutscreen implements Screen {
     private Button gobackButton = new Button(Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) - 180, "gobackbutton.jpg");
     private SpriteBatch spriteBatch;
     private Vector3 touchPoint;
+    private Backgroundimages aboutImage = new Backgroundimages("backgroundmoon.jpeg");
     private OrthographicCamera cam;
     private ShapeRenderer sr = new ShapeRenderer();
     private Game game;
@@ -35,7 +36,7 @@ public class Aboutscreen implements Screen {
     @Override
     public void show() {
 
-        ScreenUtils.clear(1, 0, 0, 1);
+        ScreenUtils.clear(0, 0, 0, 1);
     }
     public void handleInput()
     {
@@ -55,6 +56,7 @@ public class Aboutscreen implements Screen {
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.begin();
+        spriteBatch.draw(aboutImage.getTexture(),0,0);
         spriteBatch.draw(gobackButton.getTexture(),gobackButton.getX(), gobackButton.getY(), gobackButton.getWidth(), gobackButton.getHeight());
         spriteBatch.end();
 

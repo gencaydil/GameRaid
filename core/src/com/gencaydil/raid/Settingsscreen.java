@@ -16,6 +16,7 @@ public class Settingsscreen implements Screen {
 
     private Button aboutButton = new Button(Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) - 80, "aboutbutton.jpg");
     private Button gobackButton = new Button(Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) - 180, "gobackbutton.jpg");
+    private Backgroundimages settingsImage = new Backgroundimages("backgroundmoon.jpeg");
     private SpriteBatch spriteBatch;
     private Vector3 touchPoint;
     private OrthographicCamera cam;
@@ -36,7 +37,7 @@ public class Settingsscreen implements Screen {
     @Override
     public void show() {
 
-        ScreenUtils.clear(1, 0, 0, 1);
+        ScreenUtils.clear(0, 0, 0, 1);
     }
     public void handleInput()
     {
@@ -61,6 +62,7 @@ public class Settingsscreen implements Screen {
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.begin();
+        spriteBatch.draw(settingsImage.getTexture(), 0,0);
         spriteBatch.draw(aboutButton.getTexture(),aboutButton.getX(), aboutButton.getY(), aboutButton.getWidth(), aboutButton.getHeight());
         spriteBatch.draw(gobackButton.getTexture(),gobackButton.getX(), gobackButton.getY(), gobackButton.getWidth(), gobackButton.getHeight());
         spriteBatch.end();
