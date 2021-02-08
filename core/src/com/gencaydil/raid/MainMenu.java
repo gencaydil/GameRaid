@@ -49,6 +49,7 @@ public class MainMenu implements Screen {
         if (Gdx.input.justTouched()) {
             if (newgameButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new Playscreen(spriteBatch, game));
+//                sound.play(Gdx.audio.newSound(Gdx.files.internal
             }
             if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 System.out.println("I have touched the settings button!");
@@ -59,9 +60,7 @@ public class MainMenu implements Screen {
             }
         }
     }
-    //                long id = sound.play(1.0f);
-//                sound.setPitch(id,1);
-//                sound.setLooping(id,false);
+
 
 
     @Override
