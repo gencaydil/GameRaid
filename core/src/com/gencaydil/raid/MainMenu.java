@@ -3,6 +3,8 @@ package com.gencaydil.raid;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -23,6 +25,8 @@ public class MainMenu implements Screen {
     private OrthographicCamera cam;
     private ShapeRenderer sr = new ShapeRenderer();
     private Game game;
+    private Music music;
+    private Sound sound;
 
     public MainMenu(SpriteBatch batch, Game game){
         cam = new OrthographicCamera();
@@ -39,25 +43,25 @@ public class MainMenu implements Screen {
 
     }
 
-    public void handleInput()
-    {
+    public void handleInput() {
         touchPoint = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
         cam.unproject(touchPoint);
-        if(Gdx.input.justTouched()){
-            if (newgameButton.getCollision().contains(touchPoint.x, touchPoint.y)){
+        if (Gdx.input.justTouched()) {
+            if (newgameButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new Playscreen(spriteBatch, game));
             }
-            else if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)){
+            if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 System.out.println("I have touched the settings button!");
                 game.setScreen(new Settingsscreen(spriteBatch, game, this));
-            }
-            else if (exitButton.getCollision().contains(touchPoint.x, touchPoint.y)){
+            } else if (exitButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 Gdx.app.exit();
                 System.exit(0);
             }
         }
     }
-
+    //                long id = sound.play(1.0f);
+//                sound.setPitch(id,1);
+//                sound.setLooping(id,false);
 
 
     @Override
@@ -105,6 +109,7 @@ public class MainMenu implements Screen {
 
     @Override
     public void dispose() {
+        music.dispose();
 
 
     }

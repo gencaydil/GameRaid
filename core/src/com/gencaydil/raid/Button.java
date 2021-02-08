@@ -1,7 +1,6 @@
 package com.gencaydil.raid;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 //int called x,y
@@ -29,6 +28,7 @@ public class Button {
         this.y = (y - (texture.getHeight() /2));
         collision = new Rectangle(this.x,this.y, getWidth(), getHeight());
     }
+
 
 
 

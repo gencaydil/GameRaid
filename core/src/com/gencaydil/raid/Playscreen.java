@@ -16,7 +16,7 @@ public class Playscreen implements Screen {
 
     private OrthographicCamera cam;
     private Spaceship spaceship = new Spaceship();
-    private Button playscreenButton = new Button(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),"gobackplayscreen.jpg");
+    private Button playscreenButton = new Button(600,440,"gobackplayscreen.jpg");
     private Alien alienOne = new Alien(300,420,"alienimage.jpg");
     private Alien alienTwo = new Alien(360,420,"alienimage.jpg");
     private Alien alienThree = new Alien(420,420,"alienimage.jpg");
@@ -48,16 +48,12 @@ public class Playscreen implements Screen {
         } else if (Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             spaceship.goLeft();
         }
-        if (playscreenButton.getCollision().contains(touchPoint.x, touchPoint.y)){
-            System.out.println("gone back haha");
+        if (Gdx.input.isKeyPressed(Input.Keys.B) || (Gdx.input.justTouched() && (playscreenButton.getCollision().contains(touchPoint.x, touchPoint.y)))){
+                System.out.println("gone back haha");
             game.setScreen(new MainMenu(spriteBatch, game));
         }
 
-
-    }
-
-
-
+        }
 
 
     @Override
