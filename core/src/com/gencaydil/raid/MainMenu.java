@@ -3,6 +3,7 @@ package com.gencaydil.raid;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -34,7 +35,7 @@ public class MainMenu implements Screen {
 
     @Override
     public void show() {
-        ScreenUtils.clear(1, 0, 0, 1);
+        ScreenUtils.clear(0, 0, 0, 1);
 
     }
 
@@ -71,13 +72,13 @@ public class MainMenu implements Screen {
         spriteBatch.draw(exitButton.getTexture(),exitButton.getX(), exitButton.getY(), exitButton.getWidth(), exitButton.getHeight());
         spriteBatch.end();
 
-//        sr.setProjectionMatrix(cam.combined);
-//        sr.begin(ShapeRenderer.ShapeType.Line);
-//        sr.setColor(Color.WHITE);
-//        sr.rect(newgameButton.getCollision().x, newgameButton.getCollision().y, newgameButton.getCollision().width, newgameButton.getCollision().height);
-//        sr.rect(settingsButton.getCollision().x, settingsButton.getCollision().y, settingsButton.getCollision().width, settingsButton.getCollision().height);
-//        sr.rect(exitButton.getCollision().x, exitButton.getCollision().y, exitButton.getCollision().width, exitButton.getCollision().height);
-//        sr.end();
+        sr.setProjectionMatrix(cam.combined);
+        sr.begin(ShapeRenderer.ShapeType.Line);
+        sr.setColor(Color.WHITE);
+        sr.rect(newgameButton.getCollision().x, newgameButton.getCollision().y, newgameButton.getCollision().width, newgameButton.getCollision().height);
+        sr.rect(settingsButton.getCollision().x, settingsButton.getCollision().y, settingsButton.getCollision().width, settingsButton.getCollision().height);
+        sr.rect(exitButton.getCollision().x, exitButton.getCollision().y, exitButton.getCollision().width, exitButton.getCollision().height);
+        sr.end();
 
 
     }
