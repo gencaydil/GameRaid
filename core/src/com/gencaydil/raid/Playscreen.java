@@ -49,8 +49,8 @@ public class Playscreen implements Screen {
             spaceship.goLeft();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.B) || (Gdx.input.justTouched() && (playscreenButton.getCollision().contains(touchPoint.x, touchPoint.y)))){
-                System.out.println("gone back haha");
             game.setScreen(new MainMenu(spriteBatch, game));
+            Soundmanager.click.play();
         }
 
         }

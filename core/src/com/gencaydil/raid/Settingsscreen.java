@@ -46,10 +46,12 @@ public class Settingsscreen implements Screen {
         if(Gdx.input.justTouched()){
             if (gobackButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 game.setScreen(mainMenu);
+                Soundmanager.click.play();
             }
             else if (aboutButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 System.out.println("touched");
                 game.setScreen(new Aboutscreen(spriteBatch, game, this));
+                Soundmanager.click.play();
             }
         }
     }

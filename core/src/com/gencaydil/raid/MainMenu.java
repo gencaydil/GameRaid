@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -26,7 +25,7 @@ public class MainMenu implements Screen {
     private ShapeRenderer sr = new ShapeRenderer();
     private Game game;
     private Music music;
-    private Sound sound;
+    private Soundmanager click;
 
     public MainMenu(SpriteBatch batch, Game game){
         cam = new OrthographicCamera();
@@ -42,26 +41,25 @@ public class MainMenu implements Screen {
         ScreenUtils.clear(0, 0, 0, 1);
 
     }
-
     public void handleInput() {
         touchPoint = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
         cam.unproject(touchPoint);
         if (Gdx.input.justTouched()) {
             if (newgameButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 game.setScreen(new Playscreen(spriteBatch, game));
-//                sound.play(Gdx.audio.newSound(Gdx.files.internal
+                Soundmanager.click.play();
             }
             if (settingsButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 System.out.println("I have touched the settings button!");
                 game.setScreen(new Settingsscreen(spriteBatch, game, this));
+                Soundmanager.click.play();
             } else if (exitButton.getCollision().contains(touchPoint.x, touchPoint.y)) {
                 Gdx.app.exit();
+                Soundmanager.click.play();
                 System.exit(0);
             }
         }
     }
-
-
 
     @Override
     public void render(float delta) {
@@ -109,6 +107,7 @@ public class MainMenu implements Screen {
     @Override
     public void dispose() {
         music.dispose();
+//        click.dispose();
 
 
     }

@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class Aboutscreen implements Screen {
+public class Aboutscreen<txtUsername> implements Screen {
 
     private Button gobackButton = new Button(Gdx.graphics.getWidth() /2,(Gdx.graphics.getHeight() /2) - 180, "gobackbutton.jpg");
     private SpriteBatch spriteBatch;
@@ -45,13 +45,15 @@ public class Aboutscreen implements Screen {
         if(Gdx.input.justTouched()){
             if (gobackButton.getCollision().contains(touchPoint.x, touchPoint.y)){
                 game.setScreen(settingsscreen);
+                Soundmanager.click.play();
             }
         }
-    }
 
+    }
 
     @Override
     public void render(float delta) {
+
         handleInput();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -65,7 +67,9 @@ public class Aboutscreen implements Screen {
         sr.setColor(Color.WHITE);
         sr.rect(gobackButton.getCollision().x, gobackButton.getCollision().y, gobackButton.getCollision().width, gobackButton.getCollision().height);
         sr.end();
+
     }
+
 
     @Override
     public void resize(int width, int height) {
@@ -89,6 +93,7 @@ public class Aboutscreen implements Screen {
 
     @Override
     public void dispose() {
+
 
     }
 }
